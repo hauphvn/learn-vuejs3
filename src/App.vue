@@ -66,11 +66,27 @@ import TheWelcome from './components/TheWelcome.vue'
 <!-- </template>-->
   <div class="form-wrapper">
     <div class="control">
-      <label id="username">Username</label>
-      <input v-model="loginForm.username" type="text">
+      <label for="username">Username</label>
+      <input id="username" v-model="loginForm.username" type="text">
       <br>
       <label for="pwd">Password</label>
-      <input v-model="loginForm.pwd" type="password">
+      <input id="pwd" v-model="loginForm.pwd" type="password">
+      <div>
+        <label for="country">Country</label>
+        <select name="" v-model="loginForm.country" id="country">
+          <option value="">Select a country</option>
+          <option value="india">India</option>
+          <option value="vietnam">Vietnam</option>
+          <option value="singapore">Singapore</option>
+        </select>
+        <label for="country">CountryMulti</label>
+        <select multiple name="" v-model="loginForm.countryMulti" id="country">
+          <option value="">Select a country</option>
+          <option value="india">India</option>
+          <option value="vietnam">Vietnam</option>
+          <option value="singapore">Singapore</option>
+        </select>
+      </div>
     </div>
     <div class="control">
       {{JSON.stringify(loginForm)}}
@@ -128,7 +144,9 @@ export default {
       fullName: 'pham van hau',
       loginForm: {
         username: '',
-        pwd: ''
+        pwd: '',
+        country: '',
+        countryMulti: []
       }
     };
   },
@@ -156,7 +174,7 @@ export default {
 }
 .form-wrapper{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   background-color: antiquewhite;
   gap: 10px;
 }
