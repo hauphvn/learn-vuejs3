@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <!--  <header>-->
   <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->
@@ -106,19 +104,44 @@
 <!--      {{ JSON.stringify(loginForm) }}-->
 <!--    </div>-->
 <!--  </div>-->
-  <Greet id="hauphvn-id" name="hauphvn" :username="fullName"/>
+<!--  <Greet id="hauphvn-id" name="hauphvn" :username="fullName"/>-->
+<!--  <br>-->
+<!--  <Greet :name="gender" username="userName" :likes=3 email="sdfsdf@gmail.com" />-->
+  <button @click="onClickPopup">Show popup</button>
+<div v-show="showPopup">
+  <Popup @close="onClosePopup" />
+</div>
+  <div v-if="!showPopup">
+    Data from popup: {{dataFromPopup}}
+  </div>
   <br>
-  <Greet :name="gender" username="userName" :likes=3 email="sdfsdf@gmail.com" />
+  <SlotExample/>
+  <br>
+  <SlotExample>
+    <h2>Children of slot</h2>
+  </SlotExample>
+  <br>
+  <NamedSlot>
+ <template v-slot:content>
+   <h2>content</h2>
+ </template>
+  </NamedSlot>
 </template>
 <script>
-import Greet from './components/Greet.vue'
+import SlotExample from './components/SlotExample.vue';
+import Popup from './components/Popup.vue';
+import Greet from './components/Greet.vue';
+import NamedSlot from "@/components/NamedSlot.vue";
 export default {
   name: 'App',
   components: {
-    Greet
+    Greet,
+    Popup,SlotExample, NamedSlot
   },
   data() {
     return {
+      showPopup: false,
+      dataFromPopup: '',
       greet: 'hello',
       name: '<div style="color: green">hauphvn</div>',
       gender: 'nam',
@@ -188,6 +211,10 @@ export default {
     };
   },
   methods: {
+    onClosePopup(event){
+      this.dataFromPopup = event ? event : '';
+     this.showPopup = false;
+    },
     add() {
       return 4 + 4;
     },
@@ -204,6 +231,9 @@ export default {
     methodFullName() {
       console.log('method fullname')
       return `${this.firstName} ${this.lastName}`;
+    },
+    onClickPopup(){
+     this.showPopup = true;
     }
   },
   computed: {
