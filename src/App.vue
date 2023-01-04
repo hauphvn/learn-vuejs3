@@ -107,36 +107,62 @@
 <!--  <Greet id="hauphvn-id" name="hauphvn" :username="fullName"/>-->
 <!--  <br>-->
 <!--  <Greet :name="gender" username="userName" :likes=3 email="sdfsdf@gmail.com" />-->
-  <button @click="onClickPopup">Show popup</button>
-<div v-show="showPopup">
-  <Popup @close="onClosePopup" />
-</div>
-  <div v-if="!showPopup">
-    Data from popup: {{dataFromPopup}}
-  </div>
-  <br>
-  <SlotExample/>
-  <br>
-  <SlotExample>
-    <h2>Children of slot</h2>
-  </SlotExample>
-  <br>
-  <NamedSlot>
- <template v-slot:content>
-   <h2>content</h2>
- </template>
-  </NamedSlot>
+<!--  <button @click="onClickPopup">Show popup</button>-->
+<!--<div v-show="showPopup">-->
+<!--  <Popup @close="onClosePopup" />-->
+<!--</div>-->
+<!--  <div v-if="!showPopup">-->
+<!--    Data from popup: {{dataFromPopup}}-->
+<!--  </div>-->
+<!--  <br>-->
+<!--  <SlotExample/>-->
+<!--  <br>-->
+<!--  <SlotExample>-->
+<!--    <h2>Children of slot</h2>-->
+<!--  </SlotExample>-->
+<!--  <br>-->
+<!--  <NamedSlot>-->
+<!-- <template v-slot:content>-->
+<!--   <h2>content</h2>-->
+<!-- </template>-->
+<!--  </NamedSlot>-->
+
+<!--  listslot-->
+<!--  <ListSlot>-->
+<!--    <template v-slot:default="slotProps">-->
+<!--      {{slotProps.email}}-->
+<!--    </template>-->
+<!--  </ListSlot>-->
+<!--  <ListSlot>-->
+<!--    <template v-slot:default="slotProps">-->
+<!--      {{slotProps.username}} | {{slotProps.email}}-->
+<!--    </template>-->
+<!--  </ListSlot>-->
+<!--  end listslot-->
+<!--stylecompoent-->
+<StyleComponent/>
+  <StyleOtherComponent>
+      <h4>h4 from app into slot other component</h4>
+  </StyleOtherComponent>
+  <div class="style-component-1">Style component of App</div>
+  <h4>style app h4</h4>
+<!--  end-style-component-->
+
 </template>
 <script>
+import StyleComponent from "@/components/StyleComponent.vue";
+import StyleOtherComponent from "@/components/StyleOtherComponent.vue";
 import SlotExample from './components/SlotExample.vue';
 import Popup from './components/Popup.vue';
 import Greet from './components/Greet.vue';
 import NamedSlot from "@/components/NamedSlot.vue";
+import ListSlot from "@/components/ListSlot.vue";
 export default {
   name: 'App',
   components: {
+    ListSlot,
     Greet,
-    Popup,SlotExample, NamedSlot
+    Popup,SlotExample, NamedSlot, StyleComponent, StyleOtherComponent
   },
   data() {
     return {
@@ -288,5 +314,12 @@ export default {
   grid-template-columns: 1fr;
   background-color: antiquewhite;
   gap: 10px;
+}
+.style-component-1{
+  color: darkred;
+}
+h4{
+  background-color: darkred;
+  color: white;
 }
 </style>

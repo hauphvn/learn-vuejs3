@@ -3,7 +3,7 @@
   <slot>header default</slot>
 </div>
   <div id="content">
-    <slot></slot>
+    <slot name="content"></slot>
   </div>
   <div id="footer">
     <slot>footer default</slot>
