@@ -149,8 +149,19 @@
 <!--  end-style-component-->
 
 <!--  dianamic components-->
-<TabIndex/>
+<!--<TabIndex/>-->
 <!--  end dianamic components-->
+<!--  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, culpa cumque debitis delectus enim ipsa ipsam ipsum mollitia odio quam qui quibusdam quidem voluptatum! Exercitationem libero natus qui repellat suscipit?-->
+<!--  </div>-->
+<!--  <br>-->
+<!--  <button @click="showModal = true">Show modal</button>-->
+<!-- <ModalMain :show = showModal  @close="onCloseModal" />-->
+<!--  <ListPosts/>-->
+
+<!--  <TemplateRef />-->
+  <UsingMixinA/>
+  <br>
+  <UsingMixinB/>
 </template>
 <script>
 import StyleComponent from "@/components/StyleComponent.vue";
@@ -161,16 +172,25 @@ import Greet from './components/Greet.vue';
 import NamedSlot from "./components/NamedSlot.vue";
 import ListSlot from "./components/ListSlot.vue";
 import TabIndex from "./components/Tabs/TabIndex.vue";
+import ModalMain from "@/components/ModalMain.vue";
+import ListPosts from "@/components/ListPosts.vue";
+import TemplateRef from "@/components/TemplateRef.vue";
+import UsingMixinA from "@/components/UsingMixinA.vue";
+import UsingMixinB from "@/components/UsingMixinB.vue";
 export default {
   name: 'App',
   components: {
+    TemplateRef,
+    ListPosts,
+    ModalMain,
     TabIndex,
     ListSlot,
     Greet,
-    Popup,SlotExample, NamedSlot, StyleComponent, StyleOtherComponent
+    Popup,SlotExample, NamedSlot, StyleComponent, StyleOtherComponent, UsingMixinA, UsingMixinB
   },
   data() {
     return {
+      showModal: false,
       showPopup: false,
       dataFromPopup: '',
       greet: 'hello',
@@ -242,6 +262,9 @@ export default {
     };
   },
   methods: {
+    onCloseModal(){
+      this.showModal = false;
+    },
     onClosePopup(event){
       this.dataFromPopup = event ? event : '';
      this.showPopup = false;
