@@ -140,14 +140,17 @@
 <!--  </ListSlot>-->
 <!--  end listslot-->
 <!--stylecompoent-->
-<StyleComponent/>
-  <StyleOtherComponent>
-      <h4>h4 from app into slot other component</h4>
-  </StyleOtherComponent>
-  <div class="style-component-1">Style component of App</div>
-  <h4>style app h4</h4>
+<!--<StyleComponent/>-->
+<!--  <StyleOtherComponent>-->
+<!--      <h4>h4 from app into slot other component</h4>-->
+<!--  </StyleOtherComponent>-->
+<!--  <div class="style-component-1">Style component of App</div>-->
+<!--  <h4>style app h4</h4>-->
 <!--  end-style-component-->
 
+<!--  dianamic components-->
+<TabIndex/>
+<!--  end dianamic components-->
 </template>
 <script>
 import StyleComponent from "@/components/StyleComponent.vue";
@@ -155,11 +158,13 @@ import StyleOtherComponent from "@/components/StyleOtherComponent.vue";
 import SlotExample from './components/SlotExample.vue';
 import Popup from './components/Popup.vue';
 import Greet from './components/Greet.vue';
-import NamedSlot from "@/components/NamedSlot.vue";
-import ListSlot from "@/components/ListSlot.vue";
+import NamedSlot from "./components/NamedSlot.vue";
+import ListSlot from "./components/ListSlot.vue";
+import TabIndex from "./components/Tabs/TabIndex.vue";
 export default {
   name: 'App',
   components: {
+    TabIndex,
     ListSlot,
     Greet,
     Popup,SlotExample, NamedSlot, StyleComponent, StyleOtherComponent
