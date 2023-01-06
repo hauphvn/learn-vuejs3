@@ -159,9 +159,15 @@
 <!--  <ListPosts/>-->
 
 <!--  <TemplateRef />-->
-  <UsingMixinA/>
-  <br>
-  <UsingMixinB/>
+<!--  <UsingMixinA/>-->
+<!--  <br>-->
+<!--  <UsingMixinB/>-->
+<!--  <CompositionData />-->
+
+<!--  <CompositionApiVModel/>-->
+<!--  <ComputedComposition/>-->
+<!--  <WatchComposition />-->
+  <Parent/>
 </template>
 <script>
 import StyleComponent from "@/components/StyleComponent.vue";
@@ -177,16 +183,25 @@ import ListPosts from "@/components/ListPosts.vue";
 import TemplateRef from "@/components/TemplateRef.vue";
 import UsingMixinA from "@/components/UsingMixinA.vue";
 import UsingMixinB from "@/components/UsingMixinB.vue";
+import CompositionData from "@/components/CompositionData.vue";
+import CompositionApiVModel from "@/components/Tabs/CompositionApiVModel.vue";
+import ComputedComposition from "@/components/ComputedComposition.vue";
+import WatchComposition from "@/components/WatchComposition.vue";
+import Parent from "@/components/ProvideInjectComposition/Parent.vue";
 export default {
   name: 'App',
   components: {
+    Parent,
+    WatchComposition,
+    CompositionApiVModel,
+    CompositionData,
     TemplateRef,
     ListPosts,
     ModalMain,
     TabIndex,
     ListSlot,
     Greet,
-    Popup,SlotExample, NamedSlot, StyleComponent, StyleOtherComponent, UsingMixinA, UsingMixinB
+    Popup,SlotExample, NamedSlot, StyleComponent, StyleOtherComponent, UsingMixinA, UsingMixinB, ComputedComposition
   },
   data() {
     return {
