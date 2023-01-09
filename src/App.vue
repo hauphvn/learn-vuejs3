@@ -167,7 +167,11 @@
 <!--  <CompositionApiVModel/>-->
 <!--  <ComputedComposition/>-->
 <!--  <WatchComposition />-->
-  <Parent/>
+<!--  <div>App component</div>-->
+<!--  <div v-if="!unMoundComponent">-->
+    <Parent/>
+<!--  </div>-->
+<!--<button @click="unMoundComponent = !unMoundComponent">unmount components</button>-->
 </template>
 <script>
 import StyleComponent from "@/components/StyleComponent.vue";
@@ -187,7 +191,9 @@ import CompositionData from "@/components/CompositionData.vue";
 import CompositionApiVModel from "@/components/Tabs/CompositionApiVModel.vue";
 import ComputedComposition from "@/components/ComputedComposition.vue";
 import WatchComposition from "@/components/WatchComposition.vue";
-import Parent from "@/components/ProvideInjectComposition/Parent.vue";
+// import Parent from "@/components/ProvideInjectComposition/Parent.vue";
+// import Parent from "@/components/LifeCircleHookComposition/Parent.vue";
+import Parent from "@/components/PropsComposition/Parent.vue";
 export default {
   name: 'App',
   components: {
@@ -205,6 +211,7 @@ export default {
   },
   data() {
     return {
+      unMoundComponent: false,
       showModal: false,
       showPopup: false,
       dataFromPopup: '',
